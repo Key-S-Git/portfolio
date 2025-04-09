@@ -1,0 +1,239 @@
+html {
+  scroll-behavior: smooth;
+}
+
+header {
+  margin: 50px;
+  padding-top: 0px;
+  padding-bottom: 100px;
+}
+section {
+  margin: 100px;
+  padding-top: 240px;
+  padding-bottom: 100px;
+}
+header h1, section h1 {
+  font-size: 150px;
+  color: #000;
+  margin: 0px;
+  padding-top: 0px;
+  padding-bottom: 100px;
+}
+header h2, section h2 {
+  font-size: 60px;
+  color: #000;
+  text-align: center;
+}
+
+.page-nav {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 100%;
+  z-index: 100;
+  margin-inline: auto;
+  transition-duration: 0.3s;
+}
+.page-nav__list {
+  padding: 15px 45px;
+  margin-inline: auto;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+}
+.page-nav__link {
+  color: #fff;
+  text-decoration: none;
+}
+.page-nav__link:hover{
+  color:#aaa;
+}
+.is-current:hover{
+  color: #46e678;
+}
+
+#nav_name{
+  margin-right: auto;
+  color:#fff;
+  font-size: 25px;
+  font-weight:bold;
+}
+#nav_name>img{
+  width: 30px;
+  height: auto;
+  display: inline-block;/* 文章の流れの中に置いている画像なので inline でも良いが今回は inline-block が適当 */
+  position: relative; /* 通常の文章の流れにある要素なので relative が適切 */
+  top: 5px; /* 下に 10px 下げる */
+}
+
+footer {
+  max-width: 450px;
+  margin: auto;
+  color: #fff;
+  text-align: center;
+  background-color: #404040;
+}
+
+.is-hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-50%);
+  transition-duration: 0.3s;
+}
+
+.is-current {
+  color: #46e678;
+  position: relative;
+}
+
+nav{
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #000;
+}
+
+.about_flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about_item>img{
+  width: 40%;
+  height: auto;
+  margin-right: 30px;
+  border-radius: 1000px;
+}
+.about_item{
+  width: 50%;
+
+}
+.about_imgpos{
+  text-align: end;
+}
+
+.name_text{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.item {
+  color: #000000;
+  width: 25%;
+  max-width: 25%;
+  aspect-ratio: 1/1;
+  text-align: center;
+  border-radius: 100%;
+  line-height: 290px;
+  font-size: 40px;
+  font-weight: bold;
+  margin:1%;
+  padding:1%;
+}
+#skill1{
+  background-color: #f88;
+}
+#skill2{
+  background-color: #ff8;
+}
+#skill3{
+  background-color: #8f8;
+}
+#skill4{
+  background-color: #8ff;
+}
+#skill5{
+  background-color: #88f;
+}
+#skill6{
+  background-color: #f8f;
+  line-height: 260px;
+}
+.word-break{
+  padding:0;
+  margin:0;
+  height: 50px;
+}
+
+
+.works_flex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.works_item>img{
+  width: 100%;
+  height: auto;
+}
+
+.works_item{
+  text-align: center;
+  width: 35%;
+  padding-bottom: 100px;
+}
+.works_item:hover{
+  opacity:0.5;
+	transition:0.3s;
+}
+
+.contact_flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 60px
+}
+
+.contact_item>img{
+  width: 110px;
+  height: auto;
+  margin-right: 100px;
+}
+.contact_item{
+  width: 50%;
+
+}
+.contact_imgpos{
+  text-align: end;
+}
+.contact_text{
+  font-size: 35px;
+  font-weight: bold;
+}
+
+
+.wrap{
+  border-right: 0.04em solid rgba(0,0,0,1);
+}
+
+#blink{
+  animation-name: flashing;
+  animation-duration: 1.0s;
+  animation-timing-function: step-end;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+@keyframes flashing {
+  0% {
+    border-right: 0.04em solid rgba(0,0,0,1);
+  }
+  50%{
+    border-right: 0.04em solid rgba(0,0,0,0);
+  }
+  100% {
+    border-right: 0.04em solid rgba(0,0,0,1);
+  }
+}
