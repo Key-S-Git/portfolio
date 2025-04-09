@@ -1,60 +1,111 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const pageNav = document.getElementById('page-nav');
-  const footer = document.getElementById('footer');
-  const firstSection = document.getElementById('about');
-  const navLinks = document.querySelectorAll(".page-nav__link");
+const windowwidth = $(window).width()
 
-  if (!pageNav || !footer || !firstSection || navLinks.length === 0) return;
-
-  let lastScrollY = window.scrollY;
-  let isTicking = false;
-
-  const updateNavVisibility = () => {
-
-    const firstSectionTop = firstSection.getBoundingClientRect().top;
-    const isInview = firstSectionTop > 300;
-    pageNav.classList.toggle('is-hidden', isInview);
-  }
-
-  const updateCurrentSection = () => {
-    navLinks.forEach(link => {
-      link.classList.remove("is-current");
-      const sectionId = link.getAttribute("href");
-      const section = document.querySelector(sectionId);
-      if (section) {
-        const sectionTop = section.offsetTop - 240;
-        const sectionBottom = sectionTop + section.offsetHeight;
-        if (lastScrollY >= sectionTop && lastScrollY <= sectionBottom) {
-          link.classList.add("is-current");
+if (window.matchMedia('(min-width: 1440px)').matches) {
+  document.addEventListener("DOMContentLoaded", () => {
+    const pageNav = document.getElementById('page-nav');
+    const footer = document.getElementById('footer');
+    const firstSection = document.getElementById('about');
+    const navLinks = document.querySelectorAll(".page-nav__link");
+  
+    if (!pageNav || !footer || !firstSection || navLinks.length === 0) return;
+  
+    let lastScrollY = window.scrollY;
+    let isTicking = false;
+  
+    const updateNavVisibility = () => {
+  
+      const firstSectionTop = firstSection.getBoundingClientRect().top;
+      const isInview = firstSectionTop > 240;
+      pageNav.classList.toggle('is-hidden', isInview);
+    }
+  
+    const updateCurrentSection = () => {
+      navLinks.forEach(link => {
+        link.classList.remove("is-current");
+        const sectionId = link.getAttribute("href");
+        const section = document.querySelector(sectionId);
+        if (section) {
+          const sectionTop = section.offsetTop - 240;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          if (lastScrollY >= sectionTop && lastScrollY <= sectionBottom) {
+            link.classList.add("is-current");
+          }
         }
-      }
-    });
-  }
+      });
+    }
+  
+    const onScroll = () => {
+      if (isTicking) return;
+      lastScrollY = window.scrollY;
+      isTicking = true;
+  
+      requestAnimationFrame(() => {
+        updateNavVisibility();
+        updateCurrentSection();
+        isTicking = false;
+      });
+    }
+  
+    window.addEventListener('scroll', onScroll);
+  
+    // 初期状態を設定
+    updateNavVisibility();
+    updateCurrentSection();
+  });
+} else{
 
-  const onScroll = () => {
-    if (isTicking) return;
-    lastScrollY = window.scrollY;
-    isTicking = true;
-
-    requestAnimationFrame(() => {
-      updateNavVisibility();
-      updateCurrentSection();
-      isTicking = false;
-    });
-  }
-
-  window.addEventListener('scroll', onScroll);
-
-  // 初期状態を設定
-  updateNavVisibility();
-  updateCurrentSection();
-});
-
-
-
-
-
-
+  document.addEventListener("DOMContentLoaded", () => {
+    const pageNav = document.getElementById('page-nav');
+    const footer = document.getElementById('footer');
+    const firstSection = document.getElementById('about');
+    const navLinks = document.querySelectorAll(".page-nav__link");
+  
+    if (!pageNav || !footer || !firstSection || navLinks.length === 0) return;
+  
+    let lastScrollY = window.scrollY;
+    let isTicking = false;
+  
+    const updateNavVisibility = () => {
+  
+      const firstSectionTop = firstSection.getBoundingClientRect().top;
+      const isInview = true;
+      pageNav.classList.toggle('is-hidden', isInview);
+    }
+  
+    const updateCurrentSection = () => {
+      navLinks.forEach(link => {
+        link.classList.remove("is-current");
+        const sectionId = link.getAttribute("href");
+        const section = document.querySelector(sectionId);
+        if (section) {
+          const sectionTop = section.offsetTop - 240;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          if (lastScrollY >= sectionTop && lastScrollY <= sectionBottom) {
+            link.classList.add("is-current");
+          }
+        }
+      });
+    }
+  
+    const onScroll = () => {
+      if (isTicking) return;
+      lastScrollY = window.scrollY;
+      isTicking = true;
+  
+      requestAnimationFrame(() => {
+        updateNavVisibility();
+        updateCurrentSection();
+        isTicking = false;
+      });
+    }
+  
+    window.addEventListener('scroll', onScroll);
+  
+    // 初期状態を設定
+    updateNavVisibility();
+    updateCurrentSection();
+  });
+}
 
 
 
