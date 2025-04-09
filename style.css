@@ -1,6 +1,7 @@
 html {
   scroll-behavior: smooth;
   font-size: calc(100vw / 144);
+  font-family: "Noto Sans JP", sans-serif;
 }
 body{
   font-size: clamp(1.1rem, calc(0.9rem + 0.625vw), 1.6rem);
